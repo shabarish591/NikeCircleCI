@@ -31,7 +31,7 @@ events:
 switchboard2_func2:
   incoming:
    handler: switchboard._em7_message_check_file_system
-events:
+events2:
        - http:
          path: ${self:custom.stage}/Nike-CircleCi-m7_message_check_file_system
          method: post
