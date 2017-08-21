@@ -27,7 +27,6 @@ functions:
           path: ${self:custom.stage}/Nike-CircleCi-Lambda
           method: post
 
-functions:
   incoming:
    handler: switchboard._em7_message_check_file_system
 events:
