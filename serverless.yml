@@ -20,13 +20,15 @@ provider:
     NODE_ENV: ${self:custom.stage}
 
 functions:
+  switchboard1_func1:
   incoming:
    handler: switchboard._airflow_request
   events:
       - http:
           path: ${self:custom.stage}/Nike-CircleCi-Lambda
           method: post
-
+          
+switchboard2_func2:
   incoming:
    handler: switchboard._em7_message_check_file_system
 events:
