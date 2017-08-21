@@ -18,8 +18,8 @@ test:
     AWS_PROFILE: shabarish
 
 post:
-    - bash ${CIRCLE_PROJECT_REPONAME}/scripts/circleci_env
-    - bash ${CIRCLE_PROJECT_REPONAME}/scripts/aws_init
+    - bash ${CIRCLE_PROJECT_REPONAME}/circleci_env
+    - bash ${CIRCLE_PROJECT_REPONAME}/aws_init
  
 deployment:
   production:
