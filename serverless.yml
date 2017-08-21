@@ -11,7 +11,8 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: python2.7
+  
   stage: dev
   region: us-west-2
   profile: support-circle-ci
@@ -20,11 +21,20 @@ provider:
 
 functions:
   incoming:
-    handler: index.handler
+   handler: switchboard._airflow_request
     events:
       - http:
           path: ${self:custom.stage}/Nike-CircleCi-Lambda
           method: post
+
+functions:
+  incoming:
+   handler: switchboard._em7_message_check_file_system
+    events:
+      - http:
+          path: ${self:custom.stage}/Nike-CircleCi-m7_message_check_file_system
+          method: post
+
 
 package:
   exclude:
