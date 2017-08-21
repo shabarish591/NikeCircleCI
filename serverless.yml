@@ -22,7 +22,7 @@ provider:
 functions:
   incoming:
    handler: switchboard._airflow_request
-    events:
+  events:
       - http:
           path: ${self:custom.stage}/Nike-CircleCi-Lambda
           method: post
@@ -30,7 +30,7 @@ functions:
 functions:
   incoming:
    handler: switchboard._em7_message_check_file_system
-    events:
+events:
       - http:
           path: ${self:custom.stage}/Nike-CircleCi-m7_message_check_file_system
           method: post
