@@ -1,9 +1,8 @@
 machine:
   timezone: Asia/Tokyo
 
- provider:
-  name: aws
-    version:python2.7
+python:
+    version:2.7
     
 cache:
   directories:
@@ -17,6 +16,10 @@ test:
   environment:
     AWS_REGION: us-west-2
     AWS_PROFILE: shabarish
+
+dependencies:
+  pre:
+   - pip install -r requirements.txt
 
 post:
     - bash ${CIRCLE_PROJECT_REPONAME}/circleci_env
