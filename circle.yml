@@ -1,0 +1,29 @@
+machine:
+  timezone: Asia/Tokyo
+
+  node:
+    version: 6.10
+    
+cache:
+  directories:
+    - functions
+    - node_modules
+
+test:
+  override:
+    - echo "No tests"
+
+  environment:
+    AWS_REGION: us-west-2
+    AWS_PROFILE: shabarish
+
+post:
+    - bash ${CIRCLE_PROJECT_REPONAME}/scripts/circleci_env
+    - bash ${CIRCLE_PROJECT_REPONAME}/scripts/aws_init
+ 
+deployment:
+  production:
+    branch: master
+    commands:
+      - chmod u+x serverless.sh
+      - /bin/bash ./serverless.sh
