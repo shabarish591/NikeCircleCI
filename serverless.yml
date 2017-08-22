@@ -1,9 +1,9 @@
-service: Nike-Lambda
+service: Nike
 custom:
   stage: ${opt:stage, self:provider.stage}
   stageConfig:
-    dev:
-      ucName: Dev
+    prod:
+      ucName: prod
       domain: aws.nike.com
    
 plugins:
@@ -13,24 +13,32 @@ provider:
   name: aws
   runtime: python2.7
   
-  stage: dev
+  stage: prod
   region: us-west-2
   profile: support-circle-ci
   environment:
     NODE_ENV: ${self:custom.stage}
 
 functions:
-  switchboard-_airflow_request:
+  switchboard-airflow_request:
     handler: switchboard/_airflow_request
     events:
       - http:
           path: ${self:custom.stage}/airflow_request
           method: post
-  switchboard-_em7_message_check_file_system:
+          
+  switchboard-em7_message_check_file_system:
     handler: switchboard/_em7_message_check_file_system
     events:
       - http:
           path: ${self:custom.stage}/em7_message
+          method: get
+          
+  switchboard-get_config_dict:
+    handler: switchboard/_get_config_dict
+    events:
+      - http:
+          path: ${self:custom.stage}/get_config_dict
           method: get
 
 package:
