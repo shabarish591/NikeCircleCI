@@ -21,21 +21,21 @@ provider:
 
 functions:
   switchboard-airflow_request:
-    handler: switchboard._airflow_request
+    handler: index._airflow_request
     events:
       - http:
           path: ${self:custom.stage}/airflow_request
           method: post
           
   switchboard-em7_message_check_file_system:
-    handler: switchboard._em7_message_check_file_system
+    handler: index._em7_message_check_file_system
     events:
       - http:
           path: ${self:custom.stage}/em7_message
           method: get
           
   switchboard-get_config_dict:
-    handler: switchboard._get_config_dict
+    handler: index._get_config_dict
     events:
       - http:
           path: ${self:custom.stage}/get_config_dict
