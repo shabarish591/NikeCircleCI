@@ -1,10 +1,10 @@
-service: Nike-CircleCi-Lambda
+service: Nike-Lambda
 custom:
   stage: ${opt:stage, self:provider.stage}
   stageConfig:
     dev:
       ucName: Dev
-      domain: Nike-CircleCi-Lambda.COM
+      domain: aws.nike.com
    
 plugins:
   - serverless-plugin-custom-domain
@@ -27,10 +27,10 @@ functions:
           path: ${self:custom.stage}/airflow_request
           method: post
   switchboard-_em7_message_check_file_system:
-    handler: handlers/_em7_message_check_file_system
+    handler: switchboard/_em7_message_check_file_system
     events:
       - http:
-          path: ${self:custom.stage}/activation/em7_message
+          path: ${self:custom.stage}/em7_message
           method: get
 
 package:
