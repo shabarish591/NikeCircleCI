@@ -15,12 +15,12 @@ test:
 
   environment:
     AWS_REGION: us-west-2
-    AWS_PROFILE: shabarish
+    AWS_PROFILE: support-circle-ci
 
 
 post:
     - bash ${CIRCLE_PROJECT_REPONAME}/circleci_env
-    - bash ${CIRCLE_PROJECT_REPONAME}/aws_init
+   
  
 deployment:
   production:
