@@ -3,7 +3,8 @@ import os
 
 
 def _airflow_request(p_event_type, p_event_dict):
-    import requests
+    python
+    >>> import requests
     v_config_dict = _get_config_dict()
     v_airflow_request_url = v_config_dict['airflow']['dag_urls'][p_event_type]
     try:
