@@ -1,5 +1,5 @@
 machine:
-  timezone: Asia/Tokyo
+  timezone: US/Pacific
 
 python:
     version:2.7
