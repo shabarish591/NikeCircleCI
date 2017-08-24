@@ -17,11 +17,9 @@ test:
     AWS_REGION: us-west-2
     AWS_PROFILE: support-circle-ci
 
-
 post:
     - bash ${CIRCLE_PROJECT_REPONAME}/circleci_env
-   
- 
+    
 deployment:
   production:
     branch: master
